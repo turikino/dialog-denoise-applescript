@@ -136,15 +136,23 @@ on denoise()
 				delay 0.1
 				key code 3 --  F
 				delay 0.1
+				set z to value of button 3 of toolbar 4 of window 2 -- copy start TC of selection
 				key code 46 -- M
 				key code 46 -- M
-				click menu item "Delete" of menu 1 of menu item "Fades" of menu 1 of menu bar item "Edit" of menu bar 1
+				
+				key code 51 -- delete
+				
 				key code 44 -- / slash
 				key code 44 -- / slash
 				key code 44 -- / slash
 				key code 37 using {shift down} -- L 
-				
-				
+				delay 0.5
+				if value of button 3 of toolbar 4 of window 2 = z then
+					key code 51 -- delete
+					key code 44 -- / slash
+					key code 44 -- / slash
+					key code 37 using {shift down} -- L
+				end if
 				delay 0.5
 				
 				click button "analyze" of window "Audio Suite: iZotope RX 4 Denoiser"

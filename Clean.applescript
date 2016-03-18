@@ -71,6 +71,18 @@ tell application "Finder"
 					
 				end if
 			end repeat
+			
+			-- shift cursor down
+			repeat while value of button 1 of toolbar 4 of window 1 > a
+				if value of button 1 of toolbar 4 of window 1 > a then
+					key code 37 -- L
+				end if
+			end repeat
+			
+			key code 125 -- Arrow Down
+			key code 41 -- ; semicolon
+			key code 39 -- ' quote
+			
 			(*if number_of_denoise_tracks > 1 then
 					set value of button 1 of toolbar 4 of window 1 to a
 					delay 0.1

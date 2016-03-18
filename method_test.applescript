@@ -28,17 +28,21 @@ tell application "Finder"
 			
 			key code 126 -- Arrow Up	
 			
-			click button 1 of toolbar 4 of window 1
+			(*click button 1 of toolbar 4 of window 1
 			delay 0.5
 			click button 1 of toolbar 4 of window 1
-			delay 2
-			set value of button 1 of toolbar 4 of window 1 to a
-			key code 36 -- enter
-			(*key code 88 using {option down, shift down} -- 6
+			delay 2*)
+			repeat while value of button 1 of toolbar 4 of window 1 > a
+				if value of button 1 of toolbar 4 of window 1 > a then
+					key code 37 -- L
+				end if
+			end repeat
+			(*key code 36 -- enter
+			key code 88 using {option down, shift down} -- 6
 			delay 0.1*)
 			key code 125 -- Arrow Down
 			key code 41 -- ; semicolon
-			
+			key code 39 -- ' quote
 		end tell
 	end tell
 end tell

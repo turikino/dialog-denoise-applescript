@@ -158,11 +158,19 @@ on denoise()
 				-- Hide all floating windows
 				click menu item 3 of menu 1 of menu bar item 12 of menu bar 1
 				delay 2
+				
 				key code 126 -- Arrow Up
-				key code 39 --  ' quote
+				-- check of next region
+				key code 47 -- . Period
+				key code 37 using {shift down} -- L
+				delay 0.1
+				key code 3 --  F
 				delay 0.5
-				if value of button 4 of toolbar 4 of window 1 > y then
-					key code 37 -- L
+				key code 39 -- ' quote
+				delay 0.5
+				if value of button 4 of toolbar 4 of window 1 = y + 1920 then
+					key code 37 using {shift down} -- L
+					key code 51 -- delete
 				end if
 				delay 0.5
 			end tell

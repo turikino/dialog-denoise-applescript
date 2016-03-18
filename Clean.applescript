@@ -15,6 +15,7 @@ tell application "Finder"
 			end repeat
 			
 			delay 0.5
+			click menu item 5 of menu 1 of menu item 16 of menu 1 of menu bar item "View" of menu bar 1
 			
 			set a to value of button 3 of toolbar 4 of window 1 -- copy start TC of selection
 			set b to value of button 4 of toolbar 4 of window 1 -- copy end TC of selection
@@ -44,6 +45,9 @@ tell application "Finder"
 			if value of button 9 of toolbar 3 of window 1 = "Selected" then
 				click button 9 of toolbar 3 of window 1
 			end if
+			
+			
+			
 			
 			(*if value of button 11 of toolbar 3 of window 1 = "Selected" then
 				click button 11 of toolbar 3 of window 1
@@ -101,6 +105,8 @@ tell application "Finder"
 				key code 39 -- ' quote
 				
 			end repeat
+			
+			click menu item 3 of menu 1 of menu item 16 of menu 1 of menu bar item "View" of menu bar 1
 			
 			display dialog "Denoise done!"
 			(*if tc >= b then

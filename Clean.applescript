@@ -11,7 +11,7 @@ tell application "Finder"
 			
 			set frontmost to true
 			-- Hide all floating windows
-			click menu item 3 of menu 1 of menu bar item 12 of menu bar 1
+			(*click menu item 3 of menu 1 of menu bar item 12 of menu bar 1*)
 			(*key code 13 using {command down, shift down, option down}*)
 			delay 0.5
 			set frontmost to true
@@ -136,13 +136,13 @@ on denoise()
 				key code 44 -- / slash
 				key code 37 using {shift down} -- L
 				delay 0.3
-				key code 3 --  F
-				delay 0.5
+				(*key code 3 --  F
+				delay 0.5*)
 				set frontmost to true
 				delay 0.1
 				set wtc to value of button 3 of toolbar 4 of window 1 -- copy start TC of selection
 				set ztc to value of button 4 of toolbar 4 of window 1 -- copy end TC of selection
-				key code 46 -- M
+				(*key code 46 -- M
 				key code 46 -- M
 				
 				key code 51 -- delete
@@ -151,10 +151,10 @@ on denoise()
 				key code 44 -- / slash
 				key code 44 -- / slash
 				key code 37 using {shift down} -- L 
-				delay 0.5
+				delay 0.5 *)
 				if value of button 1 of toolbar 4 of window 1 as number is equal to (wtc + 0) then
 					delay 1
-					key code 51 -- delete
+					(*key code 51 -- delete
 					delay 0.5
 					key code 46 -- M
 					key code 46 -- M
@@ -170,13 +170,15 @@ on denoise()
 					delay 0.5
 					key code 44 -- / slash
 					key code 44 -- / slash
+					delay 0.5*)
 					key code 44 -- / slash
 					key code 37 using {shift down} -- L 
 					delay 0.5
-					if value of button 1 of toolbar 4 of window 1 as number < (gAtc-19200) then
+					if value of button 1 of toolbar 4 of window 1 as number < (gAtc - 19200) then
 						key code 39 -- ' quote
+						(*key code 44 -- / slash
 						key code 44 -- / slash
-						key code 44 -- / slash
+						delay 0.5*)
 						key code 44 -- / slash
 						key code 37 using {shift down} -- L 
 						delay 0.5

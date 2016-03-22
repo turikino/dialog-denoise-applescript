@@ -15,6 +15,8 @@ tell application "Finder"
 			repeat until (size of window 1 is equal to MainWindowSize)
 			end repeat
 			
+			
+			
 			delay 0.5
 			
 			set frontmost to true
@@ -90,9 +92,21 @@ on denoise()
 				activate
 				set frontmost to true
 				
+				set MainWindowSize to size of window 1
 				delay 0.5
-				(*-- launch iZotope RX 4 Denoiser
-				click menu item "iZotope RX 4 Denoiser" of menu 1 of menu item "Noise Reduction" of menu 1 of menu bar item "AudioSuite" of menu bar 1*)
+				
+				set temp to display dialog "Enter number of broadband denoise (dB)" default answer ""
+				set number_of_dB to the text returned of temp
+				
+				
+				repeat until (size of window 1 is equal to MainWindowSize)
+				end repeat
+				
+				set frontmost to true
+				delay 2
+				
+				-- launch iZotope RX 4 Denoiser
+				click menu item "iZotope RX 4 Denoiser" of menu 1 of menu item "Noise Reduction" of menu 1 of menu bar item "AudioSuite" of menu bar 1
 				
 				delay 2
 				

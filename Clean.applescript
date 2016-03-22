@@ -131,18 +131,20 @@ on denoise()
 				set frontmost to true
 				
 				
-				-- select 15 frames for noise profile
+				-- select 3 frames for noise profile
 				
-				key code 44 -- / slash
+				key code 47 -- . period
+				key code 47 -- . period
+				key code 47 -- . period
 				key code 37 using {shift down} -- L
 				delay 0.3
 				(*key code 3 --  F
 				delay 0.5*)
 				set frontmost to true
 				delay 0.1
-				set wtc to value of button 3 of toolbar 4 of window 1 -- copy start TC of selection
+				(*set wtc to value of button 3 of toolbar 4 of window 1 -- copy start TC of selection
 				set ztc to value of button 4 of toolbar 4 of window 1 -- copy end TC of selection
-				(*key code 46 -- M
+				key code 46 -- M
 				key code 46 -- M
 				
 				key code 51 -- delete
@@ -151,10 +153,10 @@ on denoise()
 				key code 44 -- / slash
 				key code 44 -- / slash
 				key code 37 using {shift down} -- L 
-				delay 0.5 *)
+				delay 0.5 
 				if value of button 1 of toolbar 4 of window 1 as number is equal to (wtc + 0) then
 					delay 1
-					(*key code 51 -- delete
+					key code 51 -- delete
 					delay 0.5
 					key code 46 -- M
 					key code 46 -- M
@@ -170,7 +172,7 @@ on denoise()
 					delay 0.5
 					key code 44 -- / slash
 					key code 44 -- / slash
-					delay 0.5*)
+					delay 0.5
 					key code 44 -- / slash
 					key code 37 using {shift down} -- L 
 					delay 0.5
@@ -183,7 +185,7 @@ on denoise()
 						key code 37 using {shift down} -- L 
 						delay 0.5
 					end if
-				end if
+				end if*)
 				
 				delay 0.5
 				

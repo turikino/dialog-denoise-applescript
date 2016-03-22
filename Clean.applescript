@@ -105,9 +105,17 @@ tell application "Finder"
 					end if
 				end repeat
 				
-				key code 125 -- Arrow Down
+				(*key code 125 -- Arrow Down
+				delay 0.5*)
 				key code 41 -- ; semicolon
-				key code 39 -- ' quote
+				
+				
+				repeat while value of button 1 of toolbar 4 of window 1 < gAtc
+					if value of button 1 of toolbar 4 of window 1 < gAtc then
+						key code 39 -- ' quote
+					end if
+				end repeat
+				
 				
 			end repeat
 			
@@ -130,7 +138,9 @@ on denoise()
 				activate
 				set frontmost to true
 				
-				
+				if value of button 1 of toolbar 4 of window 1 < gAtc then
+					key code 39 -- ' quote
+				end if
 				-- select 3 frames for noise profile
 				
 				key code 47 -- . period
@@ -138,6 +148,13 @@ on denoise()
 				key code 47 -- . period
 				key code 37 using {shift down} -- L
 				delay 0.3
+				if value of button 3 of toolbar 4 of window 1 < gAtc then
+					key code 39 -- ' quote
+					key code 47 -- . period
+					key code 47 -- . period
+					key code 47 -- . period
+					key code 37 using {shift down} -- L
+				end if
 				(*key code 3 --  F
 				delay 0.5*)
 				set frontmost to true
@@ -248,7 +265,12 @@ on denoise()
 					key code 37 using {shift down} -- L
 					key code 51 -- delete
 				end if
-				
+				(*key code 37 using {shift down} -- L
+				delay 0.5
+				if value of button 4 of toolbar 4 of window 1 as number > gBtc then
+					-- select end of the region
+					key code 126 -- Arrow Up
+				end if*)
 				delay 0.5
 				
 			end tell

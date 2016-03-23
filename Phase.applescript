@@ -23,7 +23,7 @@ tell application "Finder"
 			
 			--select number of tracks
 			set temp to display dialog "Enter number of tracks and click OK" default answer ""
-			set number_of_denoise_tracks to the text returned of temp
+			set number_of_phase_tracks to the text returned of temp
 			
 			repeat until (size of window 1 is equal to MainWindowSize)
 			end repeat
@@ -82,8 +82,8 @@ tell application "Finder"
 			
 			delay 0.5
 			
-			-- cycle of denoise
-			repeat number_of_denoise_tracks times
+			-- cycle of phase
+			repeat number_of_phase_tracks times
 				
 				-- compare TC of cursor with end TC of selection
 				
@@ -92,7 +92,7 @@ tell application "Finder"
 				delay 0.5
 				repeat while tc < gBtc
 					if tc < gBtc then
-						my denoise()
+						my phase()
 						set tc to value of button 1 of toolbar 4 of window 1
 						
 					end if
@@ -126,14 +126,14 @@ tell application "Finder"
 			click menu item 3 of menu 1 of menu bar item 12 of menu bar 1
 			delay 2
 			
-			display dialog "Denoise done!"
+			display dialog "phase done!"
 			
 			
 		end tell
 	end tell
 end tell
 
-on denoise()
+on phase()
 	tell application "Finder"
 		tell application "System Events"
 			set PT to the first application process whose creator type is "PTul"
@@ -210,23 +210,12 @@ on denoise()
 				
 				delay 0.5
 				
-				-- launch iZotope RX 4 Denoiser
-				click menu item "iZotope RX 4 Denoiser" of menu 1 of menu item "Noise Reduction" of menu 1 of menu bar item "AudioSuite" of menu bar 1
+				-- launch iZotope RX 4 phaser
+				click button "slot 2" of toolbar "Inserts" of toolbar "PHASE auxiliary track" of window 1
+				
 				
 				delay 2
-				
-				
-				
-				set frontmost to true
-				
-				delay 0.5
-				
-				-- launch LEARN
-				click button "analyze" of window "Audio Suite: iZotope RX 4 Denoiser"
-				
-				set MainWindowSize to size of window "Audio Suite: iZotope RX 4 Denoiser"
-				delay 0.5
-				
+								
 				set frontmost to true
 				
 				delay 0.5
@@ -243,8 +232,8 @@ on denoise()
 				
 				delay 1
 				
-				-- launch RENDER
-				click button "process" of window "Audio Suite: iZotope RX 4 Denoiser"
+				-- launch PREVIEW
+				click button "process" of window "Audio Suite: iZotope RX 4 phaser"
 				
 				
 				repeat until (size of window 1 is equal to MainWindowSize)
@@ -253,8 +242,8 @@ on denoise()
 				(*-- Hide all floating windows
 				click menu item 3 of menu 1 of menu bar item 12 of menu bar 1*)
 				delay 1
-				-- close RX Denoiser
-				click button 1 of window "Audio Suite: iZotope RX 4 Denoiser"
+				-- close RX phaser
+				click button 1 of window "Audio Suite: iZotope RX 4 phaser"
 				
 				delay 2
 				
@@ -284,4 +273,4 @@ on denoise()
 			end tell
 		end tell
 	end tell
-end denoise
+end phase

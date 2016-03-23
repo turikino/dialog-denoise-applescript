@@ -11,7 +11,7 @@ tell application "Finder"
 			
 			set frontmost to true
 			-- Hide all floating windows
-			(*click menu item 3 of menu 1 of menu bar item 12 of menu bar 1*)
+			click menu item 3 of menu 1 of menu bar item 12 of menu bar 1
 			(*key code 13 using {command down, shift down, option down}*)
 			delay 0.5
 			set frontmost to true
@@ -121,6 +121,10 @@ tell application "Finder"
 			
 			-- switch Main Counter to TimeCode
 			click menu item 3 of menu 1 of menu item 16 of menu 1 of menu bar item "View" of menu bar 1
+			
+			-- Restore all floating windows
+			click menu item 3 of menu 1 of menu bar item 12 of menu bar 1
+			delay 2
 			
 			display dialog "Denoise done!"
 			
@@ -246,8 +250,12 @@ on denoise()
 				repeat until (size of window 1 is equal to MainWindowSize)
 				end repeat
 				
-				-- Hide all floating windows
-				click menu item 3 of menu 1 of menu bar item 12 of menu bar 1
+				(*-- Hide all floating windows
+				click menu item 3 of menu 1 of menu bar item 12 of menu bar 1*)
+				delay 1
+				-- close RX Denoiser
+				click button 1 of window "Audio Suite: iZotope RX 4 Denoiser"
+				
 				delay 2
 				
 				-- select end of the region
